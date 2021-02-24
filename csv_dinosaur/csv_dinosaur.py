@@ -36,11 +36,9 @@ def dinosaursFromCsv(filename1, filename2):
 					x.stance = row2['STANCE']
 	return dinosaurArr
 					
-dinosaurs = dinosaursFromCsv('dataset1.csv','dataset2.csv')
+dinosaurObjs = dinosaursFromCsv('dataset1.csv','dataset2.csv')
+dinosaurObjs.sort(key=lambda dinosaur:dinosaur.speed)
 
-bipedalSpeed = {}
-for dinosaur in dinosaurs:
-	if dinosaur.stance == 'bipedal':
-		bipedalSpeed[dinosaur.name] = dinosaur.speed
-
-print(*sorted(bipedalSpeed,key=bipedalSpeed.get),sep = "\n")
+for dinosaurObj in dinosaurObjs:
+	if dinosaurObj.stance == 'bipedal':
+		print(dinosaurObj.name)
