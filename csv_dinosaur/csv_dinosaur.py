@@ -29,7 +29,7 @@ def dinosaursFromCsv(filename1, filename2):
 		reader1 = csv.DictReader(csvfile1)
 		for row1 in reader1:
 			# assign values to dinosaur attributes from csv files and append to list
-			dinosaurArr.append(Dinosaur(row1['NAME'],row1['LEG_LENGTH'],row1['DIET'],0,0))
+			dinosaurArr.append(Dinosaur(row1['NAME'],row1['LEG_LENGTH'],row1['DIET'],0.0,0.0))
 
 	# read the second csv
 	with open(filename2,newline='') as csvfile2:
