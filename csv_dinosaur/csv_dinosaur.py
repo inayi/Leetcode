@@ -11,6 +11,7 @@
 import csv
 import math
 
+# create a dinosaur class 
 class Dinosaur():
 	def __init__(self, name, leg_length, diet, stride_length, stance):
 		self.name = name
@@ -20,13 +21,17 @@ class Dinosaur():
 		self.stance = stance
 		self.speed = (float(stride_length)/float(leg_length)-1)* math.sqrt(float(leg_length))*9.8
 
+# create a function that read from two csv files
 def dinosaursFromCsv(filename1, filename2):
 	dinosaurArr = []
+	# read the first csv
 	with open(filename1,newline='') as csvfile1:
 		reader1 = csv.DictReader(csvfile1)
 		for row1 in reader1:
+			# assign values to dinosaur attributes from csv files and append to list
 			dinosaurArr.append(Dinosaur(row1['NAME'],row1['LEG_LENGTH'],row1['DIET'],0,0))
 
+	# read the second csv
 	with open(filename2,newline='') as csvfile2:
 		reader2 = csv.DictReader(csvfile2)	
 		for row2 in reader2:
@@ -35,10 +40,13 @@ def dinosaursFromCsv(filename1, filename2):
 					x.stride_length = row2['STRIDE_LENGTH']
 					x.stance = row2['STANCE']
 	return dinosaurArr
-					
+
+# call the function to create an object list				
 dinosaurObjs = dinosaursFromCsv('dataset1.csv','dataset2.csv')
+# sort the list by speed
 dinosaurObjs.sort(key=lambda dinosaur:dinosaur.speed)
 
+# print name of dinosaur which stance is 'bipedal'
 for dinosaurObj in dinosaurObjs:
 	if dinosaurObj.stance == 'bipedal':
 		print(dinosaurObj.name)
