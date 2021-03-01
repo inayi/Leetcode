@@ -7,14 +7,13 @@
 
 def reverseOnlyletter(string):
     letters = [c for c in string if c.isalpha()]
-    reversed_list = []
+    reversed = []
     for c in string:
         if c.isalpha():
-            reversed_list += letters.pop()
+            reversed.append(letters.pop())
         else:
-            reversed_list += c
-    reversed_string = ''.join(map(str,reversed_list))
-    return reversed_string
+            reversed.append(c)
+    return ''.join(reversed)
 
 if __name__ == "__main__":
     test = reverseOnlyletter("Test1ng-Leet=code-Q!")
