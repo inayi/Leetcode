@@ -44,7 +44,7 @@ def dinosaursFromCsv(filename1, filename2):
 # call the function to create an object list				
 dinosaurObjs = dinosaursFromCsv('dataset1.csv','dataset2.csv')
 # sort the list by speed
-dinosaurObjs.sort(key=lambda dinosaur:dinosaur.speed)
+dinosaurObjs.sort(key=lambda dinosaur:dinosaur.speed, reverse=True)
 
 # print name of dinosaur which stance is 'bipedal'
 for dinosaurObj in dinosaurObjs:
