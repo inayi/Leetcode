@@ -15,8 +15,9 @@ import sys
 
 G = 9.8  # gravitational constant
 
+# Parse CSV and return {name: value} for the relevant column.
 def parse_csv(filename, filter_bipedal=False):
-    """Parse CSV and return {name: value} for the relevant column."""
+    
     data = {}
     with open(filename, "r", newline="") as f:
         reader = csv.DictReader(f)
